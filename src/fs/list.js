@@ -20,12 +20,8 @@ const list = async () => {
         const isFilesFolderExist = await isExist(filesFolder);
         if (!isFilesFolderExist) throw new Error("FS operation failed");
 
-        const files = await readdir(filesFolder, { withFileTypes: true });
-        if (files.length !== 0) {
-            for (const file of files) {
-                console.log(file.name);
-            }
-        }
+        const files = await readdir(filesFolder);
+        console.log(files);
     } catch (error) {
         console.error(error);
     }
